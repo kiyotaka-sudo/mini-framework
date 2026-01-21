@@ -1,2 +1,5 @@
-
 vendor/
+.env
+*.sqlite
+database/*.sqlite
+storage/logs/*.log

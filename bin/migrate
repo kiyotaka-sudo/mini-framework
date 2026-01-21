@@ -1,0 +1,34 @@
+<?php
+
+// Basic migration runner
+
+require_once __DIR__ . '/../app/Core/Database.php';
+
+// Manually load .env since we might not have composer/vlucas/phpdotenv yet
+if (file_exists(__DIR__ . '/../.env')) {
+    $env = parse_ini_file(__DIR__ . '/../.env');
+    foreach ($env as $key => $value) {
+        $_ENV[$key] = $value;
+    }
+}
+
+use App\Core\Database;
+
+try {
+    $db = Database::getInstance();
+    $files = glob(__DIR__ . '/../database/migrations/*.php');
+    
+    echo "Running migrations...\n";
+
+    foreach ($files as $file) {
+        echo "Migrating: " . basename($file) . "\n";
+        $sql = require $file;
+        $db->query($sql);
+    }
+    
+    echo "Migrations completed successfully.\n";
+
+} catch (Exception $e) {
+    echo "Migration failed: " . $e->getMessage() . "\n";
+    exit(1);
+}
