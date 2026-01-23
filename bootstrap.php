@@ -31,9 +31,10 @@ $app = new App();
 $app->singleton(Logger::class, fn () => new Logger($logPath));
 $app->singleton(Database::class, fn () => Database::connectFromEnv());
 $app->singleton(Router::class, fn (App $container) => new Router($container));
+$app->singleton(RequestLoggerMiddleware::class, fn () => new RequestLoggerMiddleware());
 
 $router = $app->make(Router::class);
-$router->aliasMiddleware('log', App\Http\Middleware\RequestLoggerMiddleware::class);
+$router->aliasMiddleware('log', RequestLoggerMiddleware::class);
 
 $routesPath = __DIR__ . '/routes/web.php';
 if (file_exists($routesPath)) {
