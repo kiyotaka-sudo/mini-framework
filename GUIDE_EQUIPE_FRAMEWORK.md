@@ -25,6 +25,7 @@ Public cible: une equipe de 8 personnes debutantes en frameworks. Objectif: cons
 - 1 Dev base de donnees: Database.php, models CRUD, migrations simples.
 - 1 Dev DX/outils: commandes CLI basiques (artisan-like), doc utilisateur et exemples.
 
+
 ## 4) Plan de livraison par phases
 ### Phase A - Mise en route
 - Ajouter Composer (`composer.json`) avec autoload PSR-4 (`App\\` => `app/`, `Database\\` => `database/`).

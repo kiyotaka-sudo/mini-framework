@@ -1,2 +1,5 @@
-
+EQUIPE_2.md
 vendor/
+storage/logs/*.log
+storage/database.sqlite
+database/database.sqlite

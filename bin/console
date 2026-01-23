@@ -1,0 +1,55 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use App\Core\Database;
+use App\Core\Migrator;
+use App\Core\Router;
+
+require_once __DIR__ . '/../bootstrap.php';
+
+$command = $argv[1] ?? 'help';
+
+switch ($command) {
+    case 'migrate':
+        $migrator = new Migrator(app()->make(Database::class), __DIR__ . '/../database/migrations');
+        $ran = $migrator->run();
+        if ($ran) {
+            echo "Migrations exécutées :\n";
+            foreach ($ran as $migration) {
+                echo " - {$migration}\n";
+            }
+        } else {
+            echo "Aucune migration à exécuter.\n";
+        }
+        break;
+
+    case 'routes':
+        $router = app()->make(Router::class);
+        $routes = $router->describeRoutes();
+        echo "Routes enregistrées :\n";
+        foreach ($routes as $route) {
+            printf(
+                "%-6s %s (%s)\n",
+                $route['method'],
+                $route['path'],
+                $route['action']
+            );
+        }
+        break;
+
+    case 'serve':
+        $host = $argv[2] ?? 'localhost:8000';
+        echo "Lancement du serveur PHP intégré sur http://{$host}\n";
+        passthru(sprintf('php -S %s -t public', $host));
+        break;
+
+    default:
+        echo "Usage : php bin/console [commande]\n";
+        echo "    migrate   Exécuter les migrations\n";
+        echo "    routes    Lister les routes disponibles\n";
+        echo "    serve     Lancer le serveur HTTP intégré (optionnel host:port)\n";
+        echo "    help      Afficher ce message\n";
+        break;
+}

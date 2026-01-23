@@ -1,15 +1,13 @@
 <?php
 
-// Front Controller
-// Toutes les requetes passent par ici.
+declare(strict_types=1);
 
-// 1. Initialisation (Bootstrap)
-require_once __DIR__ . '/../bootstrap.php';
+use App\Core\Request;
+use App\Core\Router;
 
-// 2. Test simple pour verifier que tout fonctionne
-echo "<h1>Mini-Framework Working!</h1>";
-echo "<p>Environment: " . ($_ENV['APP_ENV'] ?? 'unknown') . "</p>";
+$app = require_once __DIR__ . '/../bootstrap.php';
 
-// (Futur) Dispatcher la requete via le Router
-// $app = new App\Core\App();
-// $app->run();
+$request = Request::capture();
+$router = app()->make(Router::class);
+$response = $router->dispatch($request);
+$response->send();
