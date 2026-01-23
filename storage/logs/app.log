@@ -1,0 +1,55 @@
+[2026-01-22 17:48:50] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-22 17:49:42] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-22 17:49:44] ERROR: Connexion MySQL impossible, bascule sur sqlite {"error":"SQLSTATE[HY000] [2002] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée"}
+[2026-01-23 09:01:21] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:01:22] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:02:19] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:02:19] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:02:20] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:02:20] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:05:57] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:08:49] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:11:05] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:11:05] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:11:08] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:11:08] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:11:09] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:11:09] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:11:09] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:11:09] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:11:09] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:11:09] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:11:10] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:11:10] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:12:28] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:12:28] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:12:29] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:12:29] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:13:52] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:18:06] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:18:06] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:18:14] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:18:14] ERROR: Erreur de dispatch {"exception":"Service [App\\Core\\App\\Http\\Middleware\\RequestLoggerMiddleware] non enregistré."}
+[2026-01-23 09:22:42] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:22:42] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:22:42] ERROR: Erreur de dispatch {"exception":"SQLSTATE[HY000]: General error: 1 no such table: users"}
+[2026-01-23 09:23:03] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:23:03] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:23:03] ERROR: Erreur de dispatch {"exception":"SQLSTATE[HY000]: General error: 1 no such table: users"}
+[2026-01-23 09:24:31] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:24:31] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:24:31] ERROR: Erreur de dispatch {"exception":"SQLSTATE[HY000]: General error: 1 no such table: users"}
+[2026-01-23 09:25:00] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:25:00] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:25:00] ERROR: Erreur de dispatch {"exception":"SQLSTATE[HY000]: General error: 1 no such table: users"}
+[2026-01-23 09:26:07] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:26:24] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:26:24] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:26:28] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:26:34] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:26:34] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:30:32] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:30:32] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:33:40] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-23 09:33:40] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-23 09:33:50] INFO: Bootstrap terminé. {"env":"local"}
