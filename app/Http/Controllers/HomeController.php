@@ -27,4 +27,25 @@ class HomeController
             'user' => $user,
         ]);
     }
+
+    public function users(Request $request): Response
+    {
+        return view('users', [
+            'appName' => $_ENV['APP_NAME'] ?? 'MiniFramework',
+        ]);
+    }
+
+    public function tasks(Request $request): Response
+    {
+        return view('tasks', [
+            'appName' => $_ENV['APP_NAME'] ?? 'MiniFramework',
+        ]);
+    }
+
+    public function dashboard(Request $request): Response
+    {
+        return view('dashboard', [
+            'appName' => $_ENV['APP_NAME'] ?? 'MiniFramework',
+        ]);
+    }
 }

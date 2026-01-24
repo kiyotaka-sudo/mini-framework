@@ -29,6 +29,21 @@ class Router
         return $this->addRoute('POST', $path, $action, $options);
     }
 
+    public function put(string $path, mixed $action, array $options = []): Route
+    {
+        return $this->addRoute('PUT', $path, $action, $options);
+    }
+
+    public function patch(string $path, mixed $action, array $options = []): Route
+    {
+        return $this->addRoute('PATCH', $path, $action, $options);
+    }
+
+    public function delete(string $path, mixed $action, array $options = []): Route
+    {
+        return $this->addRoute('DELETE', $path, $action, $options);
+    }
+
     public function aliasMiddleware(string $alias, string $middleware): void
     {
         $this->middlewareAliases[$alias] = $middleware;

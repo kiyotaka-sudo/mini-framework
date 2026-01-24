@@ -16,8 +16,41 @@ class Request
         $this->method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
         $this->uri = $_SERVER['REQUEST_URI'] ?? '/';
         $this->query = $_GET;
-        $this->body = $_POST;
         $this->headers = $this->collectHeaders();
+        $this->body = $this->parseBody();
+    }
+
+    private function parseBody(): array
+    {
+        // Pour les requêtes POST avec formulaire standard
+        if (!empty($_POST)) {
+            return $_POST;
+        }
+
+        // Pour les requêtes JSON (POST, PUT, PATCH, DELETE)
+        $contentType = $this->headers['content-type'] ?? '';
+        if (str_contains($contentType, 'application/json')) {
+            $rawBody = file_get_contents('php://input');
+            if ($rawBody) {
+                $decoded = json_decode($rawBody, true);
+                if (is_array($decoded)) {
+                    return $decoded;
+                }
+            }
+        }
+
+        // Pour les requêtes PUT/PATCH avec form-urlencoded
+        if (in_array($this->method, ['PUT', 'PATCH', 'DELETE'])) {
+            $rawBody = file_get_contents('php://input');
+            if ($rawBody) {
+                parse_str($rawBody, $parsed);
+                if (!empty($parsed)) {
+                    return $parsed;
+                }
+            }
+        }
+
+        return [];
     }
 
     public static function capture(): self

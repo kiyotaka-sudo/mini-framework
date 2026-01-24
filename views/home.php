@@ -16,8 +16,9 @@
         Salut <?= htmlspecialchars($name) ?>, prêt(e) à explorer une base propre, rapide et pleine d'animations ?
         Essaie un nom personnalisé via <code>?name=Prénom</code>.
     </p>
-    <div style="margin-top: 1.5rem;">
-        <a class="cta" href="/api">Découvrir l'API</a>
+    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a class="cta" href="/users">Gerer les Utilisateurs</a>
+        <a class="cta" href="/api" style="background: var(--surface); color: var(--text); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">Decouvrir l'API</a>
     </div>
 </section>
 
