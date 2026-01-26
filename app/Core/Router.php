@@ -15,7 +15,7 @@ class Router
     protected array $middlewareAliases = [];
     protected array $globalMiddleware = [];
 
-    public function __construct(protected App $app)
+    public function __construct(protected ?App $app = null)
     {
     }
 

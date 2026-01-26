@@ -141,3 +141,20 @@
 [2026-01-24 05:31:22] DEBUG: Requête entrante {"method":"GET","path":"\/api\/tasks"}
 [2026-01-24 05:31:22] INFO: Bootstrap terminé. {"env":"local"}
 [2026-01-24 05:31:22] DEBUG: Requête entrante {"method":"GET","path":"\/api\/tasks\/stats"}
+[2026-01-26 08:32:39] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:33:09] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:33:09] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-26 08:33:09] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:33:09] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-26 08:33:09] ERROR: Erreur de dispatch {"exception":"SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: users.email"}
+[2026-01-26 08:33:10] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:34:01] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:34:01] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-26 08:34:01] ERROR: Erreur de dispatch {"exception":"SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: users.email"}
+[2026-01-26 08:34:02] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:34:02] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-26 08:34:02] ERROR: Erreur de dispatch {"exception":"SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: users.email"}
+[2026-01-26 08:35:02] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:35:19] INFO: Bootstrap terminé. {"env":"local"}
+[2026-01-26 08:35:19] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-26 08:35:19] ERROR: Erreur de dispatch {"exception":"SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: users.email"}

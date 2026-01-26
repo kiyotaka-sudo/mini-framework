@@ -36,6 +36,11 @@ class Response
         return $this;
     }
 
+    public function header(string $name, string $value): self
+    {
+        return $this->withHeader($name, $value);
+    }
+
     public function getBody(): string
     {
         return $this->body;

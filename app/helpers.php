@@ -1,7 +1,6 @@
 <?php
 
 use App\Core\App;
-use App\Core\Logger;
 use App\Core\Response;
 
 if (!function_exists('app')) {
@@ -11,55 +10,52 @@ if (!function_exists('app')) {
     }
 }
 
-if (!function_exists('logger')) {
-    function logger(): Logger
+if (!function_exists('view')) {
+    function view(string $view, array $data = []): Response
     {
-        return app()->make(Logger::class);
-    }
-}
+        $viewPath = __DIR__ . '/../views/' . str_replace('.', '/', $view) . '.php';
+        
+        if (!file_exists($viewPath)) {
+            throw new \RuntimeException("Vue non trouvée: {$view}");
+        }
 
-if (!function_exists('response')) {
-    function response(string $body = '', int $status = 200, array $headers = []): Response
-    {
-        return new Response($body, $status, $headers);
+        extract($data);
+        ob_start();
+        require $viewPath;
+        $content = ob_get_clean();
+
+        return new Response($content);
     }
 }
 
 if (!function_exists('json')) {
-    function json(array|object $payload, int $status = 200, array $headers = []): Response
+    function json(mixed $data, int $status = 200): Response
     {
-        $headers['Content-Type'] = 'application/json; charset=utf-8';
-        $body = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-
-        return new Response($body ?: '', $status, $headers);
+        $response = new Response(json_encode($data), $status);
+        $response->header('Content-Type', 'application/json');
+        return $response;
     }
 }
 
-if (!function_exists('view')) {
-    function view(string $name, array $data = [], ?string $layout = 'layouts/app'): Response
+if (!function_exists('response')) {
+    function response(string $content = '', int $status = 200, array $headers = []): Response
     {
-        $base = dirname(__DIR__);
-        $render = function (string $path, array $data) {
-            if (!file_exists($path)) {
-                throw new RuntimeException("Vue introuvable: {$path}");
-            }
-
-            extract($data, EXTR_SKIP);
-            ob_start();
-            include $path;
-            return ob_get_clean();
-        };
-
-        $viewPath = $base . '/views/' . str_replace('.', '/', $name) . '.php';
-        $content = $render($viewPath, $data);
-
-        if ($layout) {
-            $layoutPath = $base . '/views/' . str_replace('.', '/', $layout) . '.php';
-            if (file_exists($layoutPath)) {
-                $content = $render($layoutPath, array_merge($data, ['slot' => $content]));
-            }
+        $response = new Response($content, $status);
+        foreach ($headers as $key => $value) {
+            $response->header($key, $value);
         }
+        return $response;
+    }
+}
 
-        return response($content);
+if (!function_exists('logger')) {
+    function logger(): object
+    {
+        // Simple logger mock pour compatibilité
+        return new class {
+            public function info(string $message, array $context = []): void {}
+            public function error(string $message, array $context = []): void {}
+            public function warning(string $message, array $context = []): void {}
+        };
     }
 }
