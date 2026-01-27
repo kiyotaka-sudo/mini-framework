@@ -7,17 +7,68 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\BackupController;
+use App\Http\Controllers\BuilderController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PageBuilderController;
 use Database\Models\User;
+
+
+
+
 
 return function (Router $router): void {
     // ============================================
     // PAGES PUBLIQUES
     // ============================================
 
-    // Page d'accueil
-    $router->get('/', HomeController::class . '@index', [
+    // Admin Dashboard
+    $router->get('/admin', AdminController::class . '@index', [
         'middleware' => ['log'],
     ]);
+
+    // Visual Project Builder
+
+    $router->get('/builder', BuilderController::class . '@index', [
+        'middleware' => ['log'],
+    ]);
+    
+    $router->post('/builder/generate', BuilderController::class . '@generate', [
+        'middleware' => ['log'],
+    ]);
+    
+    $router->post('/builder/preview', BuilderController::class . '@preview', [
+        'middleware' => ['log'],
+    ]);
+
+    // Visual Page Builder (Drag & Drop)
+    $router->get('/page-builder', PageBuilderController::class . '@index', [
+        'middleware' => ['log'],
+    ]);
+    
+    $router->post('/page-builder/save', PageBuilderController::class . '@save', [
+        'middleware' => ['log'],
+    ]);
+
+    $router->get('/view-page/{name}', function(Request $request) {
+        $name = $request->route('name');
+        return view('pages.' . $name, ['title' => ucfirst($name)]);
+    }, [
+        'middleware' => ['log'],
+    ]);
+
+    // Page d'accueil
+
+
+    $router->get('/', function() {
+        return view('home', [
+            'title' => 'Bienvenue dans votre nouveau projet',
+            'isNewProject' => true
+        ]);
+    }, [
+        'middleware' => ['log'],
+    ]);
+
+
 
     // Page de gestion des utilisateurs
     $router->get('/users', HomeController::class . '@users', [
@@ -33,6 +84,7 @@ return function (Router $router): void {
     $router->get('/dashboard', HomeController::class . '@dashboard', [
         'middleware' => ['log'],
     ]);
+
 
     // ============================================
     // AUTHENTIFICATION - PAGES

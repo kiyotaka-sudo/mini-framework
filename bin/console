@@ -42,8 +42,9 @@ switch ($command) {
     case 'serve':
         $host = $argv[2] ?? 'localhost:8000';
         echo "Lancement du serveur PHP intégré sur http://{$host}\n";
-        passthru(sprintf('php -S %s -t public', $host));
+        passthru(sprintf('%s -S %s -t public', PHP_BINARY, $host));
         break;
+
 
     default:
         echo "Usage : php bin/console [commande]\n";

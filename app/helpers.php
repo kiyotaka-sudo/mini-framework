@@ -36,7 +36,7 @@ if (!function_exists('json')) {
 }
 
 if (!function_exists('view')) {
-    function view(string $name, array $data = [], ?string $layout = 'layouts/app'): Response
+    function view(string $name, array $data = [], string|bool|null $layout = null): Response
     {
         $base = dirname(__DIR__);
         $render = function (string $path, array $data) {
@@ -53,6 +53,16 @@ if (!function_exists('view')) {
         $viewPath = $base . '/views/' . str_replace('.', '/', $name) . '.php';
         $content = $render($viewPath, $data);
 
+        // If layout is explicitly false, skip layout wrapping
+        if ($layout === false) {
+            return response($content);
+        }
+
+        // Auto-detect layout: use blog layout for blog views
+        if ($layout === null) {
+            $layout = str_starts_with($name, 'blog.') ? 'layouts/blog' : 'layouts/app';
+        }
+
         if ($layout) {
             $layoutPath = $base . '/views/' . str_replace('.', '/', $layout) . '.php';
             if (file_exists($layoutPath)) {
@@ -63,3 +73,4 @@ if (!function_exists('view')) {
         return response($content);
     }
 }
+

@@ -77,6 +77,11 @@ class Request
 
         return $path;
     }
+    
+    public function getBody(): string
+    {
+        return file_get_contents('php://input');
+    }
 
     public function all(): array
     {

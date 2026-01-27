@@ -15,7 +15,13 @@ class Logger
         }
     }
 
+    public function log(string $message, string $level = 'info', array $context = []): void
+    {
+        $this->write($level, $message, $context);
+    }
+
     public function info(string $message, array $context = []): void
+
     {
         $this->write('info', $message, $context);
     }
