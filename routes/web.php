@@ -15,7 +15,6 @@ use Database\Models\User;
 
 
 
-
 return function (Router $router): void {
     // ============================================
     // PAGES PUBLIQUES

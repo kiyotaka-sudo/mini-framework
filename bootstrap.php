@@ -2,9 +2,7 @@
 
 use App\Core\App;
 use App\Core\Database;
-use App\Core\Logger;
 use App\Core\Router;
-use App\Http\Middleware\RequestLoggerMiddleware;
 use Dotenv\Dotenv;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -24,17 +22,11 @@ if ($env === 'local') {
     error_reporting(0);
 }
 
-$logPath = $_ENV['LOG_PATH'] ?? __DIR__ . '/storage/logs/app.log';
-$_ENV['LOG_PATH'] = $logPath;
-
 $app = new App();
-$app->singleton(Logger::class, fn () => new Logger($logPath));
-$app->singleton(Database::class, fn () => Database::connectFromEnv());
+$app->singleton(Database::class, fn () => new Database());
 $app->singleton(Router::class, fn (App $container) => new Router($container));
-$app->singleton(RequestLoggerMiddleware::class, fn () => new RequestLoggerMiddleware());
 
 $router = $app->make(Router::class);
-$router->aliasMiddleware('log', RequestLoggerMiddleware::class);
 
 $routesPath = __DIR__ . '/routes/web.php';
 if (file_exists($routesPath)) {
@@ -43,7 +35,5 @@ if (file_exists($routesPath)) {
         $registrar($router);
     }
 }
-
-logger()->info('Bootstrap terminé.', ['env' => $env]);
 
 return $app;

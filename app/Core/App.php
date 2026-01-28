@@ -6,21 +6,20 @@ use Closure;
 
 class App
 {
+    protected static ?App $instance = null;
     protected array $bindings = [];
     protected array $instances = [];
-    protected static ?self $instance = null;
 
     public function __construct()
     {
         self::$instance = $this;
     }
 
-    public static function getInstance(): self
+    public static function getInstance(): static
     {
-        if (self::$instance === null) {
-            throw new \RuntimeException('L\'application n\'a pas été initialisée.');
+        if (!self::$instance) {
+            self::$instance = new static();
         }
-
         return self::$instance;
     }
 
@@ -35,10 +34,6 @@ class App
         $this->bindings[$abstract] = $resolver;
     }
 
-    /**
-     * @param string $abstract
-     * @return mixed
-     */
     public function make(string $abstract): mixed
     {
         if (array_key_exists($abstract, $this->instances) && $this->instances[$abstract] !== null) {

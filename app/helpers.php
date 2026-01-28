@@ -73,4 +73,3 @@ if (!function_exists('view')) {
         return response($content);
     }
 }
-
