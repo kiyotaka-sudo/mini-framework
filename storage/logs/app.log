@@ -234,3 +234,13 @@
 [2026-01-26 08:35:19] DEBUG: Requête entrante {"method":"GET","path":"\/"}
 [2026-01-26 08:35:19] ERROR: Erreur de dispatch {"exception":"SQLSTATE[23000]: Integrity constraint violation: 19 UNIQUE constraint failed: users.email"}
 >>>>>>> origin/feature/devcore2
+[2026-01-28 20:16:25] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-28 20:16:28] DEBUG: Requête entrante {"method":"GET","path":"\/admin\/fifa"}
+[2026-01-28 20:16:28] ERROR: Erreur de dispatch {"exception":"SQLSTATE[HY000]: General error: 1 no such table: fifas"}
+[2026-01-28 20:16:32] DEBUG: Requête entrante {"method":"GET","path":"\/builder"}
+[2026-01-28 20:20:08] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 20:20:08] INFO: Received body: {"entities":[{"name":"voiture","table":"voitures","fields":[{"name":"marques","type":"string","nullable":false},{"name":"caution","type":"string","nullable":false}]}]} 
+[2026-01-28 20:21:38] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-28 20:21:41] ERROR: Erreur de dispatch {"exception":"Service [VoitureController] non enregistré."}
+[2026-01-28 20:32:34] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-28 20:34:44] INFO: Received body: {"entities":[{"name":"artist","table":"artists","fields":[{"name":"name","type":"string","nullable":false},{"name":"bio","type":"text","nullable":true},{"name":"image_url","type":"string","nullable":true}]},{"name":"album","table":"albums","fields":[{"name":"name","type":"string","nullable":false},{"name":"artist_id","type":"integer","nullable":false},{"name":"release_date","type":"date","nullable":true},{"name":"cover_url","type":"string","nullable":true}]}]} 

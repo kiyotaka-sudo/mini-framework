@@ -11,7 +11,7 @@ class Request
     protected array $headers = [];
     protected array $routeParameters = [];
 
-    private function __construct()
+    public function __construct()
     {
         $this->method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
         $this->uri = $_SERVER['REQUEST_URI'] ?? '/';

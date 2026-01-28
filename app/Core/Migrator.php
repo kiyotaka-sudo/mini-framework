@@ -32,6 +32,15 @@ class Migrator
                 $migration($this->database);
                 $this->record($name, $batch);
                 $ran[] = $name;
+            } elseif (is_object($migration) && method_exists($migration, 'up')) {
+                $migration->up($this->database);
+                $this->record($name, $batch);
+                $ran[] = $name;
+            }
+ elseif (is_object($migration) && method_exists($migration, 'up')) {
+                $migration->up($this->database);
+                $this->record($name, $batch);
+                $ran[] = $name;
             }
         }
 

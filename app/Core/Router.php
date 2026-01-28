@@ -80,7 +80,7 @@ class Router
             $pipeline = $this->buildPipeline($middleware, $action);
 
             return $pipeline($request);
-        } catch (Exception $exception) {
+        } catch (\Throwable $exception) {
             logger()->error('Erreur de dispatch', ['exception' => $exception->getMessage()]);
             return response('Erreur interne', 500);
         }

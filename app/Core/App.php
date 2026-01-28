@@ -42,8 +42,13 @@ class App
 
         if (!isset($this->bindings[$abstract])) {
             if (class_exists($abstract)) {
+                // Special handling for Logger which requires a path
+                if ($abstract === Logger::class) {
+                    return $this->instances[$abstract] = new Logger(dirname(__DIR__, 2) . '/storage/logs/app.log');
+                }
                 return $this->instances[$abstract] = new $abstract();
             }
+
 
             throw new \RuntimeException(sprintf('Service [%s] non enregistré.', $abstract));
         }

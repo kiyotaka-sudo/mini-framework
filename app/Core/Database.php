@@ -98,6 +98,21 @@ class Database
         }
     }
 
+    public function query(string $sql): \PDOStatement
+    {
+        return $this->connection->query($sql);
+    }
+
+    public function prepare(string $sql): \PDOStatement
+    {
+        return $this->connection->prepare($sql);
+    }
+
+    public function lastInsertId(): string
+    {
+        return $this->connection->lastInsertId();
+    }
+
     protected function raw(string $sql, array $bindings = []): PDOStatement
     {
         $statement = $this->connection->prepare($sql);

@@ -1,0 +1,148 @@
+[2026-01-28 09:50:55] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:50:56] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:50:56] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:51:03] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:51:05] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:51:29] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:51:36] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:51:59] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:52:02] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:52:06] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:52:07] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:52:08] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:52:09] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 09:57:03] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 10:04:00] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 11:43:24] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 11:43:24] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 11:52:17] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 11:59:19] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:12:14] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:12:16] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:12:16] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:12:16] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:13:29] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:22:10] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:22:13] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 12:22:14] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:34:53] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:36:26] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:36:46] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:43:08] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:43:13] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:43:20] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:43:20] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:45:48] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:45:49] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:45:50] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:45:51] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:45:51] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:45:52] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 14:47:37] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 16:16:54] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 16:17:01] ERROR: Erreur de dispatch {"exception":"Service [log] non enregistré."}
+[2026-01-28 16:19:49] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-28 16:20:18] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-28 16:20:26] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-28 16:20:50] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-28 16:20:58] DEBUG: Requête entrante {"method":"GET","path":"\/builder"}
+[2026-01-28 16:21:43] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:21:43] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:21:43] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:21:45] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:21:45] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:21:45] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:21:47] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:21:47] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:21:47] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:21:48] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:21:48] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:21:48] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:05] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-28 16:22:22] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:22] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:22] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:24] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:24] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:24] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:25] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:25] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:25] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:43] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:43] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:43] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:44] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:44] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:44] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:44] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:44] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:44] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:45] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:45] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:45] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:45] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:45] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:45] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:46] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:46] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:46] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:46] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:46] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:46] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:46] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:46] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:46] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:22:47] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:22:47] INFO: Received body: {"entities":[{"name":"produit","table":"produits","fields":[{"name":"prix","type":"string","nullable":false},{"name":"nom","type":"string","nullable":false}]}]} 
+[2026-01-28 16:22:47] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:24:26] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-28 16:24:44] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-28 16:24:49] ERROR: Erreur de dispatch {"exception":"Service [ProduitController] non enregistré."}
+[2026-01-28 16:27:25] DEBUG: Requête entrante {"method":"GET","path":"\/builder"}
+[2026-01-28 16:28:14] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:14] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:14] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:16] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:16] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:16] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:16] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:16] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:17] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:17] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:17] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:17] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:18] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:18] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:18] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:18] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:18] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:18] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:18] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:18] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:19] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:19] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:19] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:19] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:19] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:28:19] INFO: Received body: {"entities":[{"name":"client","table":"clients","fields":[{"name":"nomp","type":"string","nullable":false},{"name":"age p","type":"string","nullable":false}]}]} 
+[2026-01-28 16:28:19] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 16:28:30] DEBUG: Requête entrante {"method":"GET","path":"\/builder"}
+[2026-01-28 16:28:35] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-28 16:28:39] DEBUG: Requête entrante {"method":"GET","path":"\/builder"}
+[2026-01-28 16:29:00] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-28 16:29:00] INFO: Received body: {"entities":[{"name":"fifa","table":"fifas","fields":[{"name":"asis","type":"string","nullable":false}]}]} 
+[2026-01-28 16:29:00] ERROR: Erreur de dispatch {"exception":"Too few arguments to function App\\Core\\Database::__construct(), 0 passed in C:\\xampp\\htdocs\\mini-framework\\bootstrap.php on line 27 and exactly 2 expected"}
+[2026-01-28 17:10:17] ERROR: Erreur de dispatch {"exception":"Service [ProduitController] non enregistré."}
+[2026-01-28 17:10:17] ERROR: Erreur de dispatch {"exception":"Service [ProduitController] non enregistré."}
+[2026-01-28 17:12:01] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-28 17:12:26] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-28 17:12:40] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:12:42] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:12:43] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:12:43] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:12:43] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:12:43] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:12:43] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:12:44] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-28 17:15:54] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-28 17:15:57] DEBUG: Requête entrante {"method":"GET","path":"\/"}

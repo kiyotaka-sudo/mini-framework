@@ -3,6 +3,7 @@
 use App\Core\App;
 use App\Core\Database;
 use App\Core\Router;
+use App\Http\Middleware\RequestLoggerMiddleware;
 use Dotenv\Dotenv;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -23,8 +24,11 @@ if ($env === 'local') {
 }
 
 $app = new App();
-$app->singleton(Database::class, fn () => new Database());
+$app->singleton(Database::class, fn () => Database::connectFromEnv());
 $app->singleton(Router::class, fn (App $container) => new Router($container));
+
+$router = $app->make(Router::class);
+$router->aliasMiddleware('log', RequestLoggerMiddleware::class);
 
 $router = $app->make(Router::class);
 
