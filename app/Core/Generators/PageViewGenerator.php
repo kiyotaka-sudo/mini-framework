@@ -15,7 +15,7 @@ class PageViewGenerator extends CodeGenerator
         $layout = $schema['layout'] ?? [];
         
         $fileName = $this->toSnakeCase($pageName) . '.php';
-        $content = $this->renderTemplate($layout);
+        $content = $this->renderLayout($layout);
         
         $directory = 'views/pages';
         $path = $directory . '/' . $fileName;
@@ -28,7 +28,7 @@ class PageViewGenerator extends CodeGenerator
     /**
      * Renders the layout components into HTML/PHP
      */
-    protected function renderTemplate(array $layout): string
+    protected function renderLayout(array $layout): string
     {
         $html = "<?php\n/** @var string \$title */\n?>\n\n";
         $html .= "<div class=\"custom-page\">\n";

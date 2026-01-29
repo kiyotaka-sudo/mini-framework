@@ -1,21 +1,59 @@
 <?php
 /** @var string $title */
-$layout = 'layouts/app.php';
 ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?></title>
+    <link rel="stylesheet" href="/css/github-theme.css">
+</head>
+<body class="bg-white">
+
 <style>
     .builder-layout {
-        height: calc(100vh - 120px); /* Adjust for header */
+        height: calc(100vh - 70px);
         overflow: hidden;
+        display: flex; /* Enforce flex layout */
     }
+    
+    /* Layout Utilities that are missing from github-theme.css */
+    .d-flex { display: flex; }
+    .flex-items-center { align-items: center; }
+    .flex-column { flex-direction: column; }
+    .justify-between { justify-content: space-between; }
+    
+    .col-2 { width: 20%; min-width: 250px; }
+    .col-7 { flex: 1; }
+    .col-3 { width: 25%; min-width: 300px; }
+    
+    .border-right { border-right: 1px solid #d0d7de; }
+    .border-left { border-left: 1px solid #d0d7de; }
+    .p-3 { padding: 16px !important; }
+    .p-4 { padding: 24px !important; }
+    .mb-2 { margin-bottom: 8px !important; }
+    .mb-3 { margin-bottom: 16px !important; }
+    .mr-2 { margin-right: 8px !important; }
+    .ml-2 { margin-left: 8px !important; }
+    .mt-5 { margin-top: 32px !important; }
+    
+    .bg-gray-light { background-color: #f6f8fa; }
+    .bg-white { background-color: #ffffff; }
     
     .comp-item {
         cursor: grab;
         transition: all 0.2s;
+        background: white;
+        border: 1px solid #d0d7de;
+        border-radius: 6px;
     }
     .comp-item:hover {
         background-color: #f6f8fa;
         border-color: #0969da;
         color: #0969da;
+        transform: translateY(-2px);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.08);
     }
     
     #canvas {
@@ -36,6 +74,7 @@ $layout = 'layouts/app.php';
     .dropped-block:hover {
         border-color: #0969da;
         border-radius: 6px;
+        background-color: rgba(9, 105, 218, 0.03);
     }
     
     .block-actions {
@@ -54,12 +93,12 @@ $layout = 'layouts/app.php';
     }
 </style>
 
-<div class="Subhead">
+<div class="Subhead p-3 border-bottom mb-0 bg-gray-light">
     <div class="Subhead-heading">Concepteur de Page</div>
     <div class="Subhead-actions">
         <div class="d-flex flex-items-center">
             <span class="mr-2 text-gray">/</span>
-            <input type="text" id="page-route" class="form-control input-sm mr-2" placeholder="slug-de-la-page">
+            <input type="text" id="page-route" class="form-control input-sm mr-2" placeholder="slug">
             <input type="text" id="page-name" class="form-control input-sm mr-2" placeholder="Nom de la page">
             <button class="btn btn-primary btn-sm" onclick="savePage()">Enregistrer</button>
             <a href="/admin" class="btn btn-sm ml-2">Quitter</a>
@@ -67,9 +106,9 @@ $layout = 'layouts/app.php';
     </div>
 </div>
 
-<div class="d-flex border rounded-2 builder-layout box-shadow">
+<div class="d-flex builder-layout">
     <!-- Palette (Left) -->
-    <div class="col-2 border-right bg-gray-light p-3" style="overflow-y: auto;">
+    <div class="col-2 border-right bg-white p-3" style="overflow-y: auto;">
         <h4 class="f5 mb-3 text-gray-dark">Blocs</h4>
         
         <div class="comp-item Box p-2 mb-2 d-flex flex-items-center" draggable="true" data-type="hero">
@@ -99,8 +138,8 @@ $layout = 'layouts/app.php';
     </div>
 
     <!-- Canvas (Center) -->
-    <div class="col-7 bg-white p-4" style="overflow-y: auto; background-image: radial-gradient(#e1e4e8 1px, transparent 1px); background-size: 20px 20px;">
-        <div id="canvas" class="border border-dashed rounded-2 p-4 bg-white">
+    <div class="col-7 bg-gray-light p-4" style="overflow-y: auto; background-image: radial-gradient(#e1e4e8 1px, transparent 1px); background-size: 20px 20px;">
+        <div id="canvas" class="border border-dashed rounded-2 p-4 bg-white box-shadow">
             <div class="blankslate pt-6">
                 <span class="h1">🖱️</span>
                 <h3 class="mb-1">Zone de construction</h3>
@@ -110,7 +149,7 @@ $layout = 'layouts/app.php';
     </div>
 
     <!-- Properties (Right) -->
-    <div class="col-3 border-left bg-gray-light p-3" style="overflow-y: auto;">
+    <div class="col-3 border-left bg-white p-3" style="overflow-y: auto;">
         <h4 class="f5 mb-3 text-gray-dark">Propriétés</h4>
         
         <div id="no-selection" class="text-center text-gray mt-5">
@@ -271,23 +310,51 @@ $layout = 'layouts/app.php';
         }
     }
 
+    function logMessage(message, type = 'info') {
+        const logs = document.getElementById('console-logs');
+        const colors = { info: '#c9d1d9', success: '#2ea043', error: '#f85149' };
+        const time = new Date().toLocaleTimeString();
+        
+        const div = document.createElement('div');
+        div.style.color = colors[type] || colors.info;
+        div.style.marginBottom = '4px';
+        div.innerText = `[${time}] ${message}`;
+        
+        logs.appendChild(div);
+        document.getElementById('status-console').scrollTop = document.getElementById('status-console').scrollHeight;
+    }
+
     async function savePage() {
         const name = document.getElementById('page-name').value;
         const route = document.getElementById('page-route').value;
         
-        if (!name || !route) return alert('Nom et route requis !');
+        if (!name || !route) {
+            logMessage('Error: Name and route are required!', 'error');
+            return;
+        }
         
-        const res = await fetch('/page-builder/save', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, route: '/' + route.replace(/^\//, ''), layout })
-        });
+        logMessage(`Compiling page '${name}' to '${route}'...`, 'info');
         
-        const data = await res.json();
-        if (data.success) {
-            alert('Sauvegardé ! ' + data.url);
-        } else {
-            alert('Erreur: ' + data.error);
+        try {
+            const res = await fetch('/page-builder/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, route: '/' + route.replace(/^\//, ''), layout })
+            });
+            
+            const data = await res.json();
+            
+            if (data.success) {
+                logMessage('Build Successful!', 'success');
+                logMessage(`File generated: ${data.file}`, 'success');
+                logMessage(`Route registered: ${data.url}`, 'success');
+            } else {
+                logMessage('Build Failed: ' + data.error, 'error');
+            }
+        } catch (e) {
+            logMessage('Network Error: ' + e.message, 'error');
         }
     }
 </script>
+</body>
+</html>

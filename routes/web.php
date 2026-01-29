@@ -33,7 +33,7 @@ return function (Router $router): void {
     // ============================================
 
     // Admin Dashboard
-    $router->get('/admin', AdminController::class . '@index', ['middleware' => ['log']]);
+    $router->get('/admin', AdminController::class . '@index', ['middleware' => ['log', 'admin']]);
 
     // Visual Project Builder
     $router->get('/builder', BuilderController::class . '@index', ['middleware' => ['log']]);
@@ -146,9 +146,9 @@ return function (Router $router): void {
     // ============================================
 
     // Produit
-    $router->get('/admin/produit', ProduitController::class . '@index', ['middleware' => ['log']]);
-    $router->get('/admin/produit/create', ProduitController::class . '@create', ['middleware' => ['log']]);
-    $router->get('/admin/produit/{id}/edit', ProduitController::class . '@edit', ['middleware' => ['log']]);
+    $router->get('/admin/produit', ProduitController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/produit/create', ProduitController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/produit/{id}/edit', ProduitController::class . '@edit', ['middleware' => ['log', 'admin']]);
     $router->get('/api/produit', ProduitController::class . '@index', ['middleware' => ['log']]);
     $router->post('/api/produit', ProduitController::class . '@store', ['middleware' => ['log']]);
     $router->get('/api/produit/{id}', ProduitController::class . '@show', ['middleware' => ['log']]);
@@ -156,9 +156,9 @@ return function (Router $router): void {
     $router->delete('/api/produit/{id}', ProduitController::class . '@destroy', ['middleware' => ['log']]);
 
     // Client
-    $router->get('/admin/client', ClientController::class . '@index', ['middleware' => ['log']]);
-    $router->get('/admin/client/create', ClientController::class . '@create', ['middleware' => ['log']]);
-    $router->get('/admin/client/{id}/edit', ClientController::class . '@edit', ['middleware' => ['log']]);
+    $router->get('/admin/client', ClientController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/client/create', ClientController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/client/{id}/edit', ClientController::class . '@edit', ['middleware' => ['log', 'admin']]);
     $router->get('/api/client', ClientController::class . '@index', ['middleware' => ['log']]);
     $router->post('/api/client', ClientController::class . '@store', ['middleware' => ['log']]);
     $router->get('/api/client/{id}', ClientController::class . '@show', ['middleware' => ['log']]);
@@ -166,9 +166,9 @@ return function (Router $router): void {
     $router->delete('/api/client/{id}', ClientController::class . '@destroy', ['middleware' => ['log']]);
 
     // Fifa
-    $router->get('/admin/fifa', FifaController::class . '@index', ['middleware' => ['log']]);
-    $router->get('/admin/fifa/create', FifaController::class . '@create', ['middleware' => ['log']]);
-    $router->get('/admin/fifa/{id}/edit', FifaController::class . '@edit', ['middleware' => ['log']]);
+    $router->get('/admin/fifa', FifaController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/fifa/create', FifaController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/fifa/{id}/edit', FifaController::class . '@edit', ['middleware' => ['log', 'admin']]);
     $router->get('/api/fifa', FifaController::class . '@index', ['middleware' => ['log']]);
     $router->post('/api/fifa', FifaController::class . '@store', ['middleware' => ['log']]);
     $router->get('/api/fifa/{id}', FifaController::class . '@show', ['middleware' => ['log']]);
@@ -176,9 +176,9 @@ return function (Router $router): void {
     $router->delete('/api/fifa/{id}', FifaController::class . '@destroy', ['middleware' => ['log']]);
 
     // Voiture
-    $router->get('/admin/voiture', VoitureController::class . '@index');
-    $router->get('/admin/voiture/create', VoitureController::class . '@create');
-    $router->get('/admin/voiture/{id}/edit', VoitureController::class . '@edit');
+    $router->get('/admin/voiture', VoitureController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/voiture/create', VoitureController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/voiture/{id}/edit', VoitureController::class . '@edit', ['middleware' => ['log', 'admin']]);
     $router->get('/api/voiture', VoitureController::class . '@index');
     $router->post('/api/voiture', VoitureController::class . '@store');
     $router->get('/api/voiture/{id}', VoitureController::class . '@show');
@@ -186,9 +186,9 @@ return function (Router $router): void {
     $router->delete('/api/voiture/{id}', VoitureController::class . '@destroy');
 
     // Artist
-    $router->get('/admin/artist', ArtistController::class . '@index');
-    $router->get('/admin/artist/create', ArtistController::class . '@create');
-    $router->get('/admin/artist/{id}/edit', ArtistController::class . '@edit');
+    $router->get('/admin/artist', ArtistController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/artist/create', ArtistController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/artist/{id}/edit', ArtistController::class . '@edit', ['middleware' => ['log', 'admin']]);
     $router->get('/api/artist', ArtistController::class . '@index');
     $router->post('/api/artist', ArtistController::class . '@store');
     $router->get('/api/artist/{id}', ArtistController::class . '@show');
@@ -196,9 +196,9 @@ return function (Router $router): void {
     $router->delete('/api/artist/{id}', ArtistController::class . '@destroy');
 
     // Album
-    $router->get('/admin/album', AlbumController::class . '@index');
-    $router->get('/admin/album/create', AlbumController::class . '@create');
-    $router->get('/admin/album/{id}/edit', AlbumController::class . '@edit');
+    $router->get('/admin/album', AlbumController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/album/create', AlbumController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/album/{id}/edit', AlbumController::class . '@edit', ['middleware' => ['log', 'admin']]);
     $router->get('/api/album', AlbumController::class . '@index');
     $router->post('/api/album', AlbumController::class . '@store');
     $router->get('/api/album/{id}', AlbumController::class . '@show');
@@ -206,9 +206,9 @@ return function (Router $router): void {
     $router->delete('/api/album/{id}', AlbumController::class . '@destroy');
 
     // Song
-    $router->get('/admin/song', SongController::class . '@index');
-    $router->get('/admin/song/create', SongController::class . '@create');
-    $router->get('/admin/song/{id}/edit', SongController::class . '@edit');
+    $router->get('/admin/song', SongController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/song/create', SongController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/song/{id}/edit', SongController::class . '@edit', ['middleware' => ['log', 'admin']]);
     $router->get('/api/song', SongController::class . '@index');
     $router->post('/api/song', SongController::class . '@store');
     $router->get('/api/song/{id}', SongController::class . '@show');
@@ -220,9 +220,9 @@ return function (Router $router): void {
     // ============================================
     
     // Admin pages
-    $router->get('/admin/playlist', PlaylistController::class . '@index');
-    $router->get('/admin/playlist/create', PlaylistController::class . '@create');
-    $router->get('/admin/playlist/{id}/edit', PlaylistController::class . '@edit');
+    $router->get('/admin/playlist', PlaylistController::class . '@index', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/playlist/create', PlaylistController::class . '@create', ['middleware' => ['log', 'admin']]);
+    $router->get('/admin/playlist/{id}/edit', PlaylistController::class . '@edit', ['middleware' => ['log', 'admin']]);
     
     // API endpoints
     $router->get('/api/playlist', PlaylistController::class . '@index');
@@ -232,18 +232,34 @@ return function (Router $router): void {
     $router->delete('/api/playlist/{id}', PlaylistController::class . '@destroy');
 
     // ============================================
-    // PlaylistController Routes
+    // OrdiController Routes
     // ============================================
     
     // Admin pages
-    $router->get('/admin/playlist', PlaylistController::class . '@index');
-    $router->get('/admin/playlist/create', PlaylistController::class . '@create');
-    $router->get('/admin/playlist/{id}/edit', PlaylistController::class . '@edit');
+    $router->get('/admin/ordi', OrdiController::class . '@index');
+    $router->get('/admin/ordi/create', OrdiController::class . '@create');
+    $router->get('/admin/ordi/{id}/edit', OrdiController::class . '@edit');
     
     // API endpoints
-    $router->get('/api/playlist', PlaylistController::class . '@index');
-    $router->post('/api/playlist', PlaylistController::class . '@store');
-    $router->get('/api/playlist/{id}', PlaylistController::class . '@show');
-    $router->put('/api/playlist/{id}', PlaylistController::class . '@update');
-    $router->delete('/api/playlist/{id}', PlaylistController::class . '@destroy');
+    $router->get('/api/ordi', OrdiController::class . '@index');
+    $router->post('/api/ordi', OrdiController::class . '@store');
+    $router->get('/api/ordi/{id}', OrdiController::class . '@show');
+    $router->put('/api/ordi/{id}', OrdiController::class . '@update');
+    $router->delete('/api/ordi/{id}', OrdiController::class . '@destroy');
+
+    // ============================================
+    // Test1Controller Routes
+    // ============================================
+    
+    // Admin pages
+    $router->get('/admin/test1', Test1Controller::class . '@index');
+    $router->get('/admin/test1/create', Test1Controller::class . '@create');
+    $router->get('/admin/test1/{id}/edit', Test1Controller::class . '@edit');
+    
+    // API endpoints
+    $router->get('/api/test1', Test1Controller::class . '@index');
+    $router->post('/api/test1', Test1Controller::class . '@store');
+    $router->get('/api/test1/{id}', Test1Controller::class . '@show');
+    $router->put('/api/test1/{id}', Test1Controller::class . '@update');
+    $router->delete('/api/test1/{id}', Test1Controller::class . '@destroy');
 };

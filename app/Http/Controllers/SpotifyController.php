@@ -25,6 +25,10 @@ class SpotifyController
     {
         $id = (int) $request->route('id');
         $artist = Artist::make()->find($id);
+
+        if (!$artist) {
+            return response('Artist not found', 404);
+        }
         
         // Fetch albums using raw query since we don't have relations yet
         $db = app()->make(\App\Core\Database::class);
@@ -41,6 +45,11 @@ class SpotifyController
     {
         $id = (int) $request->route('id');
         $album = Album::make()->find($id);
+
+        if (!$album) {
+            return response('Album not found', 404);
+        }
+
         $artist = Artist::make()->find($album['artist_id']);
         
         $db = app()->make(\App\Core\Database::class);

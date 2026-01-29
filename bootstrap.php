@@ -29,6 +29,7 @@ $app->singleton(Router::class, fn (App $container) => new Router($container));
 
 $router = $app->make(Router::class);
 $router->aliasMiddleware('log', RequestLoggerMiddleware::class);
+$router->aliasMiddleware('admin', \App\Http\Middleware\AdminAuth::class);
 
 $router = $app->make(Router::class);
 

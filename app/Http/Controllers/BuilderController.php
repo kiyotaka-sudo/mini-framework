@@ -68,7 +68,7 @@ class BuilderController
             
             // Execute Migrations automatically!
             $db = app()->make(Database::class);
-            $migrator = new Migrator($db, dirname(__DIR__, 2) . '/database/migrations');
+            $migrator = new Migrator($db, dirname(__DIR__, 3) . '/database/migrations');
             $generated['ran_migrations'] = $migrator->run();
             
             // Add use statements to routes

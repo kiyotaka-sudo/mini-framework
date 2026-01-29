@@ -15,7 +15,7 @@
 <div style="background: rgba(0,0,0,0.2); padding: 24px;">
     <!-- Controls -->
     <div style="margin-bottom: 32px; display:flex; align-items:center; gap:24px;">
-        <button class="btn-primary" style="background:#1db954; width:56px; height:56px; border-radius:50%; font-size:24px; display:flex; align-items:center; justify-content:center;">▶</button>
+        <button class="btn-primary" onclick="playTrack('<?= htmlspecialchars($songs[0]['file_url'] ?? '') ?>', '<?= addslashes($songs[0]['title'] ?? '') ?>', '<?= addslashes($artist['name']) ?>')" style="background:#1db954; width:56px; height:56px; border-radius:50%; font-size:24px; display:flex; align-items:center; justify-content:center; border:none; cursor:pointer;">▶</button>
         <button class="circle-btn" style="width:32px; height:32px; font-size:24px;">♥</button>
         <button class="circle-btn" style="width:32px; height:32px;">...</button>
     </div>
@@ -29,8 +29,11 @@
 
     <!-- Songs List -->
     <?php foreach ($songs as $s): ?>
-    <div class="song-row" style="display:grid; grid-template-columns: 50px 1fr 100px; padding: 12px 16px; border-radius:4px; transition:background 0.2s;">
-        <div style="color:#b3b3b3; display:flex; align-items:center;"><?= $s['track_number'] ?></div>
+    <div class="song-row" onclick="playTrack('<?= htmlspecialchars($s['file_url'] ?? '') ?>', '<?= addslashes($s['title']) ?>', '<?= addslashes($artist['name']) ?>')" style="display:grid; grid-template-columns: 50px 1fr 100px; padding: 12px 16px; border-radius:4px; transition:background 0.2s; cursor:pointer;">
+        <div style="color:#b3b3b3; display:flex; align-items:center;">
+            <span class="track-num"><?= $s['track_number'] ?></span>
+            <span class="play-icon" style="display:none;">▶</span>
+        </div>
         <div style="display:flex; flex-direction:column;">
             <div style="font-weight:bold; color:white;"><?= htmlspecialchars($s['title']) ?></div>
             <div style="font-size:14px; color:#b3b3b3;"><?= htmlspecialchars($artist['name']) ?></div>
@@ -46,4 +49,6 @@
 .song-row:hover {
     background-color: rgba(255,255,255,0.1);
 }
+.song-row:hover .track-num { display: none; }
+.song-row:hover .play-icon { display: block !important; }
 </style>

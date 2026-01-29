@@ -86,5 +86,40 @@
             <!-- Add volume slider later -->
         </div>
     </div>
+    <script>
+        const audioPlayer = new Audio();
+        const playBtn = document.querySelector('.play-pause-btn');
+        const trackName = document.querySelector('.track-name');
+        const trackArtist = document.querySelector('.track-artist');
+        const progressBar = document.querySelector('.progress');
+
+        function playTrack(url, title, artist) {
+            audioPlayer.src = url;
+            trackName.textContent = title;
+            trackArtist.textContent = artist;
+            audioPlayer.play();
+            playBtn.textContent = '⏸';
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playBtn.textContent = '⏸';
+            } else {
+                audioPlayer.pause();
+                playBtn.textContent = '▶';
+            }
+        });
+
+        audioPlayer.addEventListener('timeupdate', () => {
+            const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.style.width = percent + '%';
+        });
+
+        audioPlayer.addEventListener('ended', () => {
+            playBtn.textContent = '▶';
+            progressBar.style.width = '0%';
+        });
+    </script>
 </body>
 </html>

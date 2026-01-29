@@ -258,3 +258,60 @@
 [2026-01-29 06:11:03] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
 [2026-01-29 06:11:04] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
 [2026-01-29 06:35:36] INFO: Received body: {"entities":[{"name":"playlist","table":"playlists","fields":[{"name":"name","type":"string","nullable":false},{"name":"description","type":"text","nullable":true}]}]} 
+[2026-01-29 08:24:32] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 08:24:56] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 08:25:19] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 08:25:54] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 08:30:58] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 08:31:04] DEBUG: Requête entrante {"method":"GET","path":"\/artist\/1"}
+[2026-01-29 08:31:17] DEBUG: Requête entrante {"method":"GET","path":"\/album\/1"}
+[2026-01-29 08:38:31] DEBUG: Requête entrante {"method":"GET","path":"\/album\/admin"}
+[2026-01-29 08:38:39] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 08:39:10] DEBUG: Requête entrante {"method":"GET","path":"\/admin\/client"}
+[2026-01-29 08:39:11] ERROR: Erreur de dispatch {"exception":"SQLSTATE[HY000]: General error: 1 no such table: clients"}
+[2026-01-29 08:39:22] ERROR: Erreur de dispatch {"exception":"Service [PlaylistController] non enregistré."}
+[2026-01-29 08:40:06] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 08:42:16] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 08:44:22] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 08:51:10] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 08:51:53] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-29 09:00:02] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 09:29:36] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 09:30:15] DEBUG: Requête entrante {"method":"GET","path":"\/album\/1"}
+[2026-01-29 09:30:22] DEBUG: Requête entrante {"method":"GET","path":"\/login"}
+[2026-01-29 09:30:32] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 09:41:31] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 09:41:40] DEBUG: Requête entrante {"method":"GET","path":"\/album\/1"}
+[2026-01-29 09:42:06] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 09:42:36] DEBUG: Requête entrante {"method":"GET","path":"\/album\/1"}
+[2026-01-29 09:42:52] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 09:44:32] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 09:44:41] DEBUG: Requête entrante {"method":"GET","path":"\/album\/1"}
+[2026-01-29 09:44:55] DEBUG: Requête entrante {"method":"GET","path":"\/album\/1"}
+[2026-01-29 09:45:25] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 09:48:23] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 09:48:41] DEBUG: Requête entrante {"method":"GET","path":"\/album\/1"}
+[2026-01-29 09:52:21] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 09:52:22] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 09:52:30] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 09:52:43] DEBUG: Requête entrante {"method":"GET","path":"\/admin\/voiture"}
+[2026-01-29 09:52:43] ERROR: Erreur de dispatch {"exception":"SQLSTATE[HY000]: General error: 1 no such table: voitures"}
+[2026-01-29 10:15:40] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 10:16:05] DEBUG: Requête entrante {"method":"GET","path":"\/register"}
+[2026-01-29 10:16:21] DEBUG: Requête entrante {"method":"POST","path":"\/api\/auth\/register"}
+[2026-01-29 10:16:22] DEBUG: Requête entrante {"method":"GET","path":"\/dashboard"}
+[2026-01-29 10:16:36] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 10:16:43] DEBUG: Requête entrante {"method":"GET","path":"\/login"}
+[2026-01-29 10:21:49] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 10:21:51] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 10:22:01] DEBUG: Requête entrante {"method":"GET","path":"\/admin\/voiture"}
+[2026-01-29 10:22:05] DEBUG: Requête entrante {"method":"GET","path":"\/builder"}
+[2026-01-29 10:23:02] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-29 10:23:02] INFO: Received body: {"entities":[{"name":"ordi","table":"ordis","fields":[{"name":"iesy","type":"string","nullable":false},{"name":"qwerty","type":"string","nullable":false}]}]} 
+[2026-01-29 10:23:09] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 10:23:13] ERROR: Erreur de dispatch {"exception":"Service [OrdiController] non enregistré."}
+[2026-01-29 10:52:49] DEBUG: Requête entrante {"method":"GET","path":"\/builder"}
+[2026-01-29 10:53:28] DEBUG: Requête entrante {"method":"POST","path":"\/builder\/generate"}
+[2026-01-29 10:53:28] INFO: Received body: {"entities":[{"name":"test1","table":"test1s","fields":[{"name":"NOM","type":"string","nullable":false},{"name":"PEONOM","type":"string","nullable":false}]}]} 
+[2026-01-29 10:53:38] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 10:53:40] ERROR: Erreur de dispatch {"exception":"Service [Test1Controller] non enregistré."}
