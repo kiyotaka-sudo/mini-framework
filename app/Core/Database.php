@@ -12,6 +12,11 @@ class Database
     protected PDO $connection;
     protected string $driver;
 
+    public function exec(string $sql): int
+    {
+        return $this->connection->exec($sql);
+    }
+
     public function __construct(PDO $connection, string $driver)
     {
         $this->connection = $connection;

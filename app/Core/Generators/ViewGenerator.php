@@ -132,40 +132,37 @@ class ViewGenerator extends CodeGenerator
     private function getIndexTemplate(): string
     {
         return <<<'HTML'
-<style>
-    .admin-container { max-width: 1200px; margin: 2rem auto; padding: 2rem; }
-    .admin-header { display: flex; justify-content: space-between; margin-bottom: 2rem; }
-    .btn { padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; }
-    .btn-primary { background: #667eea; color: white; }
-    .btn-danger { background: #f56565; color: white; }
-    .table { width: 100%; border-collapse: collapse; }
-    .table th, .table td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
-</style>
-
-<div class="admin-container">
-    <div class="admin-header">
-        <h1>{{entityName}} Management</h1>
-        <a href="/admin/{{viewPrefix}}/create" class="btn btn-primary">+ New {{entityName}}</a>
+<div class="Subhead">
+    <div class="Subhead-heading">{{entityName}} Management</div>
+    <div class="Subhead-actions">
+        <a href="/admin/{{viewPrefix}}/create" class="btn btn-primary btn-sm">+ New {{entityName}}</a>
     </div>
-    
-    <table class="table">
-        <thead>
-            <tr>
-                {{tableHeaders}}
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($items as $item): ?>
-            <tr>
-                {{tableRows}}
-                <td>
-                    <a href="/admin/{{viewPrefix}}/<?= $item['id'] ?>/edit" class="btn btn-primary">Edit</a>
-                    <button onclick="deleteItem(<?= $item['id'] ?>)" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+</div>
+
+<div class="Box">
+    <div class="Box-header">
+        <h3 class="Box-title">List of {{entityName}}</h3>
+    </div>
+    <div class="overflow-auto">
+        <table class="width-full">
+            <thead>
+                <tr class="text-left">
+                    {{tableHeaders}}
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($items as $item): ?>
+                <tr class="border-top">
+                    {{tableRows}}
+                    <td>
+                        <a href="/admin/{{viewPrefix}}/<?= $item['id'] ?>/edit" class="btn btn-sm">Edit</a>
+                        <button onclick="deleteItem(<?= $item['id'] ?>)" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <script>
@@ -181,24 +178,26 @@ HTML;
     private function getCreateTemplate(): string
     {
         return <<<'HTML'
-<style>
-    .form-container { max-width: 600px; margin: 2rem auto; padding: 2rem; background: white; border-radius: 10px; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-    .form-control { width: 100%; padding: 0.5rem; border: 1px solid #e2e8f0; border-radius: 5px; }
-    .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; }
-    .btn-primary { background: #667eea; color: white; }
-</style>
-
-<div class="form-container">
-    <h1>Create {{entityName}}</h1>
+<div class="container-md my-4">
+    <div class="Subhead">
+        <div class="Subhead-heading">Create {{entityName}}</div>
+    </div>
     
-    <form id="createForm">
-        {{formFields}}
-        
-        <button type="submit" class="btn btn-primary">Create</button>
-        <a href="/admin/{{viewPrefix}}" class="btn">Cancel</a>
-    </form>
+    <div class="Box">
+        <div class="Box-header">
+            <h3 class="Box-title">New Record</h3>
+        </div>
+        <div class="Box-body">
+            <form id="createForm">
+                {{formFields}}
+                
+                <div class="form-actions mt-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a href="/admin/{{viewPrefix}}" class="btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -224,24 +223,26 @@ HTML;
     private function getEditTemplate(): string
     {
         return <<<'HTML'
-<style>
-    .form-container { max-width: 600px; margin: 2rem auto; padding: 2rem; background: white; border-radius: 10px; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-    .form-control { width: 100%; padding: 0.5rem; border: 1px solid #e2e8f0; border-radius: 5px; }
-    .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; }
-    .btn-primary { background: #667eea; color: white; }
-</style>
-
-<div class="form-container">
-    <h1>Edit {{entityName}}</h1>
+<div class="container-md my-4">
+    <div class="Subhead">
+        <div class="Subhead-heading">Edit {{entityName}}</div>
+    </div>
     
-    <form id="editForm">
-        {{formFields}}
-        
-        <button type="submit" class="btn btn-primary">Update</button>
-        <a href="/admin/{{viewPrefix}}" class="btn">Cancel</a>
-    </form>
+    <div class="Box">
+        <div class="Box-header">
+            <h3 class="Box-title">Edit Record #<?= $item['id'] ?></h3>
+        </div>
+        <div class="Box-body">
+            <form id="editForm">
+                {{formFields}}
+                
+                <div class="form-actions mt-3">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="/admin/{{viewPrefix}}" class="btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script>

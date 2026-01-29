@@ -24,27 +24,53 @@ $schema = [
                 ['name' => 'release_date', 'type' => 'date', 'nullable' => true],
                 ['name' => 'cover_url', 'type' => 'string', 'nullable' => true],
             ]
+        ],
+        [
+            'name' => 'song',
+            'table' => 'songs',
+            'fields' => [
+                ['name' => 'title', 'type' => 'string', 'nullable' => false],
+                ['name' => 'album_id', 'type' => 'integer', 'nullable' => false],
+                ['name' => 'duration', 'type' => 'integer', 'nullable' => true], // seconds
+                ['name' => 'track_number', 'type' => 'integer', 'nullable' => true],
+                ['name' => 'file_url', 'type' => 'string', 'nullable' => true],
+            ]
         ]
     ]
 ];
 
-// Mocking Request
-// We need to inject this into the controller
 $_SERVER['REQUEST_METHOD'] = 'POST';
 $json = json_encode($schema);
 
-// Directly calling the controller method with a mocked request wrapper
-// Since we can't easily mock php://input for the Request class in this script without external tools,
-// we will instantiate the controller and pass a request that returns our body.
-
 $requestMock = new class($json) extends Request {
     private $mockBody;
-    public function __construct($body) { $this->mockBody = $body; }
+    public function __construct($body) { 
+        parent::__construct();
+        $this->mockBody = $body; 
+    }
     public function getBody(): string { return $this->mockBody; }
 };
 
-$controller = new BuilderController();
-$response = $controller->generate($requestMock);
+echo "Generating Spotify Schema...\n";
 
-echo "Status: " . $response->getStatusCode() . "\n";
-echo "Body: " . $response->getContent() . "\n";
+try {
+    $controller = new BuilderController();
+    $response = $controller->generate($requestMock);
+    
+    echo "Response Type: " . get_class($response) . "\n";
+    
+    // Check available methods on Response
+    // print_r(get_class_methods($response));
+    
+    // Assuming getContent() or similar exists, or public properties
+    if (method_exists($response, 'getContent')) {
+        echo "Body: " . $response->getContent() . "\n";
+    } else {
+        echo "Dumping Response:\n";
+        var_dump($response);
+    }
+
+} catch (Throwable $e) {
+    echo "ERROR: " . $e->getMessage() . "\n";
+    echo $e->getTraceAsString() . "\n";
+}

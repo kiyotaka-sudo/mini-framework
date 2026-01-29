@@ -13,112 +13,66 @@ use App\Http\Controllers\PageBuilderController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FifaController;
+use App\Http\Controllers\VoitureController;
+use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\SpotifyController;
 use Database\Models\User;
 
-
-
-
 return function (Router $router): void {
+    // ============================================
+    // SPOTIFY CLONE ROUTES
+    // ============================================
+    $router->get('/', SpotifyController::class . '@index', ['middleware' => ['log']]);
+    $router->get('/artist/{id}', SpotifyController::class . '@artist', ['middleware' => ['log']]);
+    $router->get('/album/{id}', SpotifyController::class . '@album', ['middleware' => ['log']]);
+
     // ============================================
     // PAGES PUBLIQUES
     // ============================================
 
     // Admin Dashboard
-    $router->get('/admin', AdminController::class . '@index', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/admin', AdminController::class . '@index', ['middleware' => ['log']]);
 
     // Visual Project Builder
-
-    $router->get('/builder', BuilderController::class . '@index', [
-        'middleware' => ['log'],
-    ]);
-    
-    $router->post('/builder/generate', BuilderController::class . '@generate', [
-        'middleware' => ['log'],
-    ]);
-    
-    $router->post('/builder/preview', BuilderController::class . '@preview', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/builder', BuilderController::class . '@index', ['middleware' => ['log']]);
+    $router->post('/builder/generate', BuilderController::class . '@generate', ['middleware' => ['log']]);
+    $router->post('/builder/preview', BuilderController::class . '@preview', ['middleware' => ['log']]);
 
     // Visual Page Builder (Drag & Drop)
-    $router->get('/page-builder', PageBuilderController::class . '@index', [
-        'middleware' => ['log'],
-    ]);
-    
-    $router->post('/page-builder/save', PageBuilderController::class . '@save', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/page-builder', PageBuilderController::class . '@index', ['middleware' => ['log']]);
+    $router->post('/page-builder/save', PageBuilderController::class . '@save', ['middleware' => ['log']]);
 
     $router->get('/view-page/{name}', function(Request $request) {
         $name = $request->route('name');
         return view('pages.' . $name, ['title' => ucfirst($name)]);
-    }, [
-        'middleware' => ['log'],
-    ]);
-
-    // Page d'accueil
-
-
-    $router->get('/', function() {
-        return view('home', [
-            'title' => 'Bienvenue dans votre nouveau projet',
-            'isNewProject' => true
-        ]);
-    }, [
-        'middleware' => ['log'],
-    ]);
-
-
+    }, ['middleware' => ['log']]);
 
     // Page de gestion des utilisateurs
-    $router->get('/users', HomeController::class . '@users', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/users', HomeController::class . '@users', ['middleware' => ['log']]);
 
     // Page de gestion des tâches
-    $router->get('/tasks', HomeController::class . '@tasks', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/tasks', HomeController::class . '@tasks', ['middleware' => ['log']]);
 
     // Dashboard
-    $router->get('/dashboard', HomeController::class . '@dashboard', [
-        'middleware' => ['log'],
-    ]);
-
+    $router->get('/dashboard', HomeController::class . '@dashboard', ['middleware' => ['log']]);
 
     // ============================================
     // AUTHENTIFICATION - PAGES
     // ============================================
 
-    $router->get('/login', AuthController::class . '@loginPage', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->get('/register', AuthController::class . '@registerPage', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/login', AuthController::class . '@loginPage', ['middleware' => ['log']]);
+    $router->get('/register', AuthController::class . '@registerPage', ['middleware' => ['log']]);
 
     // ============================================
     // AUTHENTIFICATION - API
     // ============================================
 
-    $router->post('/api/auth/login', AuthController::class . '@login', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->post('/api/auth/register', AuthController::class . '@register', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->post('/api/auth/logout', AuthController::class . '@logout', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->get('/api/auth/me', AuthController::class . '@me', [
-        'middleware' => ['log'],
-    ]);
+    $router->post('/api/auth/login', AuthController::class . '@login', ['middleware' => ['log']]);
+    $router->post('/api/auth/register', AuthController::class . '@register', ['middleware' => ['log']]);
+    $router->post('/api/auth/logout', AuthController::class . '@logout', ['middleware' => ['log']]);
+    $router->get('/api/auth/me', AuthController::class . '@me', ['middleware' => ['log']]);
 
     // ============================================
     // API STATUS
@@ -142,124 +96,39 @@ return function (Router $router): void {
     // ROUTES CRUD UTILISATEURS
     // ============================================
 
-    // GET /api/users - Liste avec recherche et pagination
-    // Params: ?search=xxx&role=xxx&status=xxx&page=1&per_page=10
-    $router->get('/api/users', UserController::class . '@index', [
-        'middleware' => ['log'],
-    ]);
-
-    // GET /api/users/{id} - Affiche un utilisateur
-    $router->get('/api/users/{id}', UserController::class . '@show', [
-        'middleware' => ['log'],
-    ]);
-
-    // POST /api/users - Crée un utilisateur
-    $router->post('/api/users', UserController::class . '@store', [
-        'middleware' => ['log'],
-    ]);
-
-    // PUT /api/users/{id} - Met à jour un utilisateur
-    $router->put('/api/users/{id}', UserController::class . '@update', [
-        'middleware' => ['log'],
-    ]);
-
-    // DELETE /api/users/{id} - Supprime un utilisateur
-    $router->delete('/api/users/{id}', UserController::class . '@destroy', [
-        'middleware' => ['log'],
-    ]);
-
-    // PATCH /api/users/{id}/status - Change le statut
-    $router->patch('/api/users/{id}/status', UserController::class . '@changeStatus', [
-        'middleware' => ['log'],
-    ]);
-
-    // PATCH /api/users/{id}/role - Change le rôle
-    $router->patch('/api/users/{id}/role', UserController::class . '@changeRole', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/api/users', UserController::class . '@index', ['middleware' => ['log']]);
+    $router->get('/api/users/{id}', UserController::class . '@show', ['middleware' => ['log']]);
+    $router->post('/api/users', UserController::class . '@store', ['middleware' => ['log']]);
+    $router->put('/api/users/{id}', UserController::class . '@update', ['middleware' => ['log']]);
+    $router->delete('/api/users/{id}', UserController::class . '@destroy', ['middleware' => ['log']]);
+    $router->patch('/api/users/{id}/status', UserController::class . '@changeStatus', ['middleware' => ['log']]);
+    $router->patch('/api/users/{id}/role', UserController::class . '@changeRole', ['middleware' => ['log']]);
 
     // ============================================
     // ROUTES CRUD TÂCHES
     // ============================================
 
-    // GET /api/tasks - Liste avec recherche et pagination
-    // Params: ?search=xxx&status=xxx&priority=xxx&user_id=xxx&page=1&per_page=10
-    $router->get('/api/tasks', TaskController::class . '@index', [
-        'middleware' => ['log'],
-    ]);
-
-    // GET /api/tasks/stats - Statistiques
-    $router->get('/api/tasks/stats', TaskController::class . '@stats', [
-        'middleware' => ['log'],
-    ]);
-
-    // GET /api/tasks/trash - Corbeille
-    $router->get('/api/tasks/trash', TaskController::class . '@trash', [
-        'middleware' => ['log'],
-    ]);
-
-    // GET /api/tasks/{id} - Affiche une tâche
-    $router->get('/api/tasks/{id}', TaskController::class . '@show', [
-        'middleware' => ['log'],
-    ]);
-
-    // POST /api/tasks - Crée une tâche
-    $router->post('/api/tasks', TaskController::class . '@store', [
-        'middleware' => ['log'],
-    ]);
-
-    // PUT /api/tasks/{id} - Met à jour une tâche
-    $router->put('/api/tasks/{id}', TaskController::class . '@update', [
-        'middleware' => ['log'],
-    ]);
-
-    // DELETE /api/tasks/{id} - Soft delete
-    $router->delete('/api/tasks/{id}', TaskController::class . '@destroy', [
-        'middleware' => ['log'],
-    ]);
-
-    // DELETE /api/tasks/{id}/force - Suppression définitive
-    $router->delete('/api/tasks/{id}/force', TaskController::class . '@forceDelete', [
-        'middleware' => ['log'],
-    ]);
-
-    // POST /api/tasks/{id}/restore - Restaurer
-    $router->post('/api/tasks/{id}/restore', TaskController::class . '@restore', [
-        'middleware' => ['log'],
-    ]);
-
-    // PATCH /api/tasks/{id}/status - Changer statut
-    $router->patch('/api/tasks/{id}/status', TaskController::class . '@changeStatus', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/api/tasks', TaskController::class . '@index', ['middleware' => ['log']]);
+    $router->get('/api/tasks/stats', TaskController::class . '@stats', ['middleware' => ['log']]);
+    $router->get('/api/tasks/trash', TaskController::class . '@trash', ['middleware' => ['log']]);
+    $router->get('/api/tasks/{id}', TaskController::class . '@show', ['middleware' => ['log']]);
+    $router->post('/api/tasks', TaskController::class . '@store', ['middleware' => ['log']]);
+    $router->put('/api/tasks/{id}', TaskController::class . '@update', ['middleware' => ['log']]);
+    $router->delete('/api/tasks/{id}', TaskController::class . '@destroy', ['middleware' => ['log']]);
+    $router->delete('/api/tasks/{id}/force', TaskController::class . '@forceDelete', ['middleware' => ['log']]);
+    $router->post('/api/tasks/{id}/restore', TaskController::class . '@restore', ['middleware' => ['log']]);
+    $router->patch('/api/tasks/{id}/status', TaskController::class . '@changeStatus', ['middleware' => ['log']]);
 
     // ============================================
     // ROUTES BACKUP / SAUVEGARDE
     // ============================================
 
-    $router->get('/api/backups', BackupController::class . '@index', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->post('/api/backups', BackupController::class . '@store', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->post('/api/backups/all', BackupController::class . '@backupAll', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->get('/api/backups/export/{table}', BackupController::class . '@export', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->post('/api/backups/restore', BackupController::class . '@restore', [
-        'middleware' => ['log'],
-    ]);
-
-    $router->delete('/api/backups/{filename}', BackupController::class . '@destroy', [
-        'middleware' => ['log'],
-    ]);
+    $router->get('/api/backups', BackupController::class . '@index', ['middleware' => ['log']]);
+    $router->post('/api/backups', BackupController::class . '@store', ['middleware' => ['log']]);
+    $router->post('/api/backups/all', BackupController::class . '@backupAll', ['middleware' => ['log']]);
+    $router->get('/api/backups/export/{table}', BackupController::class . '@export', ['middleware' => ['log']]);
+    $router->post('/api/backups/restore', BackupController::class . '@restore', ['middleware' => ['log']]);
+    $router->delete('/api/backups/{filename}', BackupController::class . '@destroy', ['middleware' => ['log']]);
 
     // ============================================
     // ROUTE LEGACY
@@ -268,18 +137,12 @@ return function (Router $router): void {
     $router->get('/users/{id}', function (Request $request) {
         $id = (int) $request->route('id');
         $user = User::make()->find($id);
-
-        if (!$user) {
-            return response('Utilisateur introuvable', 404);
-        }
-
+        if (!$user) return response('Utilisateur introuvable', 404);
         return json($user);
-    }, [
-        'middleware' => ['log'],
-    ]);
+    }, ['middleware' => ['log']]);
 
     // ============================================
-    // ENTITIES GENERATED ROUTES
+    // ENTITIES GENERATED ROUTES (Cleaned up)
     // ============================================
 
     // Produit
@@ -312,51 +175,75 @@ return function (Router $router): void {
     $router->put('/api/fifa/{id}', FifaController::class . '@update', ['middleware' => ['log']]);
     $router->delete('/api/fifa/{id}', FifaController::class . '@destroy', ['middleware' => ['log']]);
 
-    // ============================================
-    // VoitureController Routes
-    // ============================================
-    
-    // Admin pages
+    // Voiture
     $router->get('/admin/voiture', VoitureController::class . '@index');
     $router->get('/admin/voiture/create', VoitureController::class . '@create');
     $router->get('/admin/voiture/{id}/edit', VoitureController::class . '@edit');
-    
-    // API endpoints
     $router->get('/api/voiture', VoitureController::class . '@index');
     $router->post('/api/voiture', VoitureController::class . '@store');
     $router->get('/api/voiture/{id}', VoitureController::class . '@show');
     $router->put('/api/voiture/{id}', VoitureController::class . '@update');
     $router->delete('/api/voiture/{id}', VoitureController::class . '@destroy');
 
-    // ============================================
-    // ArtistController Routes
-    // ============================================
-    
-    // Admin pages
+    // Artist
     $router->get('/admin/artist', ArtistController::class . '@index');
     $router->get('/admin/artist/create', ArtistController::class . '@create');
     $router->get('/admin/artist/{id}/edit', ArtistController::class . '@edit');
-    
-    // API endpoints
     $router->get('/api/artist', ArtistController::class . '@index');
     $router->post('/api/artist', ArtistController::class . '@store');
     $router->get('/api/artist/{id}', ArtistController::class . '@show');
     $router->put('/api/artist/{id}', ArtistController::class . '@update');
     $router->delete('/api/artist/{id}', ArtistController::class . '@destroy');
 
-    // ============================================
-    // AlbumController Routes
-    // ============================================
-    
-    // Admin pages
+    // Album
     $router->get('/admin/album', AlbumController::class . '@index');
     $router->get('/admin/album/create', AlbumController::class . '@create');
     $router->get('/admin/album/{id}/edit', AlbumController::class . '@edit');
-    
-    // API endpoints
     $router->get('/api/album', AlbumController::class . '@index');
     $router->post('/api/album', AlbumController::class . '@store');
     $router->get('/api/album/{id}', AlbumController::class . '@show');
     $router->put('/api/album/{id}', AlbumController::class . '@update');
     $router->delete('/api/album/{id}', AlbumController::class . '@destroy');
+
+    // Song
+    $router->get('/admin/song', SongController::class . '@index');
+    $router->get('/admin/song/create', SongController::class . '@create');
+    $router->get('/admin/song/{id}/edit', SongController::class . '@edit');
+    $router->get('/api/song', SongController::class . '@index');
+    $router->post('/api/song', SongController::class . '@store');
+    $router->get('/api/song/{id}', SongController::class . '@show');
+    $router->put('/api/song/{id}', SongController::class . '@update');
+    $router->delete('/api/song/{id}', SongController::class . '@destroy');
+
+    // ============================================
+    // PlaylistController Routes
+    // ============================================
+    
+    // Admin pages
+    $router->get('/admin/playlist', PlaylistController::class . '@index');
+    $router->get('/admin/playlist/create', PlaylistController::class . '@create');
+    $router->get('/admin/playlist/{id}/edit', PlaylistController::class . '@edit');
+    
+    // API endpoints
+    $router->get('/api/playlist', PlaylistController::class . '@index');
+    $router->post('/api/playlist', PlaylistController::class . '@store');
+    $router->get('/api/playlist/{id}', PlaylistController::class . '@show');
+    $router->put('/api/playlist/{id}', PlaylistController::class . '@update');
+    $router->delete('/api/playlist/{id}', PlaylistController::class . '@destroy');
+
+    // ============================================
+    // PlaylistController Routes
+    // ============================================
+    
+    // Admin pages
+    $router->get('/admin/playlist', PlaylistController::class . '@index');
+    $router->get('/admin/playlist/create', PlaylistController::class . '@create');
+    $router->get('/admin/playlist/{id}/edit', PlaylistController::class . '@edit');
+    
+    // API endpoints
+    $router->get('/api/playlist', PlaylistController::class . '@index');
+    $router->post('/api/playlist', PlaylistController::class . '@store');
+    $router->get('/api/playlist/{id}', PlaylistController::class . '@show');
+    $router->put('/api/playlist/{id}', PlaylistController::class . '@update');
+    $router->delete('/api/playlist/{id}', PlaylistController::class . '@destroy');
 };

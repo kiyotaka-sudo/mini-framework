@@ -1,17 +1,15 @@
-<style>
-    .form-container { max-width: 600px; margin: 2rem auto; padding: 2rem; background: white; border-radius: 10px; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-    .form-control { width: 100%; padding: 0.5rem; border: 1px solid #e2e8f0; border-radius: 5px; }
-    .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; }
-    .btn-primary { background: #667eea; color: white; }
-</style>
-
-<div class="form-container">
-    <h1>Create Artist</h1>
+<div class="container-md my-4">
+    <div class="Subhead">
+        <div class="Subhead-heading">Create Artist</div>
+    </div>
     
-    <form id="createForm">
-        <div class="form-group">
+    <div class="Box">
+        <div class="Box-header">
+            <h3 class="Box-title">New Record</h3>
+        </div>
+        <div class="Box-body">
+            <form id="createForm">
+                <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" value="" class="form-control" required>
             </div>
@@ -23,10 +21,14 @@
                 <label>Image Url</label>
                 <input type="text" name="image_url" value="" class="form-control" required>
             </div>
-        
-        <button type="submit" class="btn btn-primary">Create</button>
-        <a href="/admin/artist" class="btn">Cancel</a>
-    </form>
+                
+                <div class="form-actions mt-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a href="/admin/artist" class="btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script>

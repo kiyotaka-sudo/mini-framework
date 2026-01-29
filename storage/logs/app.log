@@ -244,3 +244,17 @@
 [2026-01-28 20:21:41] ERROR: Erreur de dispatch {"exception":"Service [VoitureController] non enregistré."}
 [2026-01-28 20:32:34] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
 [2026-01-28 20:34:44] INFO: Received body: {"entities":[{"name":"artist","table":"artists","fields":[{"name":"name","type":"string","nullable":false},{"name":"bio","type":"text","nullable":true},{"name":"image_url","type":"string","nullable":true}]},{"name":"album","table":"albums","fields":[{"name":"name","type":"string","nullable":false},{"name":"artist_id","type":"integer","nullable":false},{"name":"release_date","type":"date","nullable":true},{"name":"cover_url","type":"string","nullable":true}]}]} 
+[2026-01-28 20:37:09] INFO: Received body: {"entities":[{"name":"artist","table":"artists","fields":[{"name":"name","type":"string","nullable":false},{"name":"bio","type":"text","nullable":true},{"name":"image_url","type":"string","nullable":true}]},{"name":"album","table":"albums","fields":[{"name":"name","type":"string","nullable":false},{"name":"artist_id","type":"integer","nullable":false},{"name":"release_date","type":"date","nullable":true},{"name":"cover_url","type":"string","nullable":true}]}]} 
+[2026-01-28 20:39:48] INFO: Received body: {"entities":[{"name":"artist","table":"artists","fields":[{"name":"name","type":"string","nullable":false},{"name":"bio","type":"text","nullable":true},{"name":"image_url","type":"string","nullable":true}]},{"name":"album","table":"albums","fields":[{"name":"name","type":"string","nullable":false},{"name":"artist_id","type":"integer","nullable":false},{"name":"release_date","type":"date","nullable":true},{"name":"cover_url","type":"string","nullable":true}]},{"name":"song","table":"songs","fields":[{"name":"title","type":"string","nullable":false},{"name":"album_id","type":"integer","nullable":false},{"name":"duration","type":"integer","nullable":true},{"name":"track_number","type":"integer","nullable":true},{"name":"file_url","type":"string","nullable":true}]}]} 
+[2026-01-28 21:00:41] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 05:53:27] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 05:53:50] DEBUG: Requête entrante {"method":"GET","path":"\/register"}
+[2026-01-29 05:57:56] DEBUG: Requête entrante {"method":"GET","path":"\/admin"}
+[2026-01-29 06:03:59] DEBUG: Requête entrante {"method":"GET","path":"\/"}
+[2026-01-29 06:05:21] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 06:05:39] INFO: Received body: {"entities":[{"name":"playlist","table":"playlists","fields":[{"name":"name","type":"string","nullable":false},{"name":"description","type":"text","nullable":true}]}]} 
+[2026-01-29 06:10:38] DEBUG: Requête entrante {"method":"GET","path":"\/page-builder"}
+[2026-01-29 06:11:01] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-29 06:11:03] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-29 06:11:04] DEBUG: Requête entrante {"method":"POST","path":"\/page-builder\/save"}
+[2026-01-29 06:35:36] INFO: Received body: {"entities":[{"name":"playlist","table":"playlists","fields":[{"name":"name","type":"string","nullable":false},{"name":"description","type":"text","nullable":true}]}]} 

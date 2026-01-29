@@ -1,6 +1,6 @@
 <div class="container-md my-4">
     <div class="Subhead">
-        <div class="Subhead-heading">Edit Artist</div>
+        <div class="Subhead-heading">Edit Playlist</div>
     </div>
     
     <div class="Box">
@@ -14,17 +14,13 @@
                 <input type="text" name="name" value="<?= htmlspecialchars($item['name'] ?? '') ?>" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Bio</label>
-                <input type="textarea" name="bio" value="<?= htmlspecialchars($item['bio'] ?? '') ?>" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Image Url</label>
-                <input type="text" name="image_url" value="<?= htmlspecialchars($item['image_url'] ?? '') ?>" class="form-control" required>
+                <label>Description</label>
+                <input type="textarea" name="description" value="<?= htmlspecialchars($item['description'] ?? '') ?>" class="form-control" required>
             </div>
                 
                 <div class="form-actions mt-3">
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="/admin/artist" class="btn">Cancel</a>
+                    <a href="/admin/playlist" class="btn">Cancel</a>
                 </div>
             </form>
         </div>
@@ -38,14 +34,14 @@ document.getElementById('editForm').addEventListener('submit', async (e) => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     
-    const response = await fetch(`/api/artist/${itemId}`, {
+    const response = await fetch(`/api/playlist/${itemId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     });
     
     if (response.ok) {
-        window.location.href = '/admin/artist';
+        window.location.href = '/admin/playlist';
     }
 });
 </script>

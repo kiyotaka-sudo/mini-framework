@@ -13,15 +13,20 @@ $command = $argv[1] ?? 'help';
 
 switch ($command) {
     case 'migrate':
-        $migrator = new Migrator(app()->make(Database::class), __DIR__ . '/../database/migrations');
-        $ran = $migrator->run();
-        if ($ran) {
-            echo "Migrations exécutées :\n";
-            foreach ($ran as $migration) {
-                echo " - {$migration}\n";
+        try {
+            $migrator = new Migrator(app()->make(Database::class), __DIR__ . '/../database/migrations');
+            $ran = $migrator->run();
+            if ($ran) {
+                echo "Migrations exécutées :\n";
+                foreach ($ran as $migration) {
+                    echo " - {$migration}\n";
+                }
+            } else {
+                echo "Aucune migration à exécuter.\n";
             }
-        } else {
-            echo "Aucune migration à exécuter.\n";
+        } catch (\Throwable $e) {
+            echo "❌ Erreur de migration : " . $e->getMessage() . "\n";
+            echo "Fichier : " . $e->getFile() . " à la ligne " . $e->getLine() . "\n";
         }
         break;
 

@@ -6,10 +6,10 @@ return new class {
     public function up(Database $db): void
     {
         $db->query("
-            CREATE TABLE IF NOT EXISTS voitures (
+            CREATE TABLE IF NOT EXISTS playlists (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                marques TEXT NOT NULL,
-                caution TEXT NOT NULL,
+                name TEXT NOT NULL,
+                description TEXT,
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                 updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
@@ -18,6 +18,6 @@ return new class {
     
     public function down(Database $db): void
     {
-        $db->query("DROP TABLE IF EXISTS voitures");
+        $db->query("DROP TABLE IF EXISTS playlists");
     }
 };

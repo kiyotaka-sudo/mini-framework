@@ -1,6 +1,6 @@
 <div class="container-md my-4">
     <div class="Subhead">
-        <div class="Subhead-heading">Create Album</div>
+        <div class="Subhead-heading">Create Playlist</div>
     </div>
     
     <div class="Box">
@@ -14,21 +14,13 @@
                 <input type="text" name="name" value="" class="form-control" required>
             </div>
             <div class="form-group">
-                <label>Artist Id</label>
-                <input type="number" name="artist_id" value="" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Release Date</label>
-                <input type="date" name="release_date" value="" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Cover Url</label>
-                <input type="text" name="cover_url" value="" class="form-control" required>
+                <label>Description</label>
+                <input type="textarea" name="description" value="" class="form-control" required>
             </div>
                 
                 <div class="form-actions mt-3">
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <a href="/admin/album" class="btn">Cancel</a>
+                    <a href="/admin/playlist" class="btn">Cancel</a>
                 </div>
             </form>
         </div>
@@ -41,14 +33,14 @@ document.getElementById('createForm').addEventListener('submit', async (e) => {
    const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     
-    const response = await fetch('/api/album', {
+    const response = await fetch('/api/playlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     });
     
     if (response.ok) {
-        window.location.href = '/admin/album';
+        window.location.href = '/admin/playlist';
     }
 });
 </script>
